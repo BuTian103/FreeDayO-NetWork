@@ -11,7 +11,7 @@
 <script>
     $(document).ready( function(){
         // 项目内容
-        $.get("../../js/mock/project.json", function(data) {
+        $.get("https://cdn.jsdelivr.net/gh/XiaozhiSans/fdo-studios/configs/projects.json", function(data) {
             $('.div').empty()
             for (let key in data) {
                 $('.div').append(`

@@ -44,24 +44,27 @@
       <br>
       <info><em class="lb pointer" onclick="window.location.href='https://github.com/BuTian103/FreeDayO-NetWork';">Github</em></info>
 <!--      <info><em class="lb pointer" onclick="window.location.href='login.html';">登录</em></info>-->
+      <info><em class="pointer" style="color: lightblue;" onclick="window.location.href='https://love-kogasa.github.io/FJST';">工具箱</em></info>
       <info><em class="pointer" style="color: lightblue;" onclick="window.location.href='https://fds.moe';">FDS --- 友情链接</em></info>
+      <info><em class="pointer" style="color: lightblue;" onclick="window.location.href='https://mcisee.top';">MCiSEE --- 友情链接</em></info>
+      <br>
 
     </div>
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
     <script>
       $(document).ready( function(){
         // 新闻
-        $.get("new.txt", function(data) {
+        $.get("https://cdn.jsdelivr.net/gh/XiaozhiSans/fdo-studios/configs/news.txt", function(data) {
           let lines = data.split('\n')
           lines.forEach(element => {
             $("#new").append(`<info><em>${element}</em></info>`)
           })
         })
         // 成员列表
-        $.get("./js/mock/person.json", function(data) {
+        $.get("https://cdn.jsdelivr.net/gh/XiaozhiSans/fdo-studios/configs/members.json", function(data) {
           for (let key in data) {
             $('#person').append(`
-              <info><em class="pointer" onclick="window.location.href='./page/person/${data[key].url}.html'">${data[key].name}</em></info>
+              <info><em class="pointer" onclick="window.location.href='https://xiaozhisans.blogu.tc/fdo-studios/members/${data[key].name}';">${data[key].name}</em></info>
             `)
           }
         })
