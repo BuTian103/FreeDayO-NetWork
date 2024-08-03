@@ -9,9 +9,9 @@
 <div class="tit">FDO 项目管理</div><br><br>
 <div class="div">Loading...</div>
 <script>
-    $(document).ready( function(){
+  $.getScript("../../js/config.js", function(){
         // 项目内容
-        $.get("https://cdn.jsdelivr.net/gh/XiaozhiSans/fdo-studios/configs/projects.json", function(data) {
+        $.get(cdnUrl + "assets/data/projects.json", function(data) {
             $('.div').empty()
             for (let key in data) {
                 $('.div').append(`

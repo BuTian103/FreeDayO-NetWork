@@ -52,23 +52,23 @@
     </div>
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
     <script>
-      $(document).ready( function(){
+      $.getScript("js/config.js", function(){
         // 新闻
-        $.get("https://cdn.jsdelivr.net/gh/XiaozhiSans/fdo-studios/configs/news.txt", function(data) {
+        $.get(cdnUrl + "assets/data/news.txt", function(data) {
           let lines = data.split('\n')
           lines.forEach(element => {
             $("#new").append(`<info><em>${element}</em></info>`)
           })
         })
         // 成员列表
-        $.get("https://cdn.jsdelivr.net/gh/XiaozhiSans/fdo-studios/configs/members.json", function(data) {
+        $.get(cdnUrl + "assets/data/members.json", function(data) {
           for (let key in data) {
             $('#person').append(`
-              <info><em class="pointer" onclick="window.location.href='https://xiaozhisans.blogu.tc/fdo-studios/members/${data[key].name}';">${data[key].name}</em></info>
+              <info><em class="pointer" onclick="window.location.href='${cdnUrl}members/${data[key].name}';">${data[key].name}</em></info>
             `)
           }
         })
-      })
+      });
     </script>
   </body>
 </html>
