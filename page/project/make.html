@@ -9,25 +9,25 @@
 <div class="tit">FDO 项目管理</div><br><br>
 <div class="div">Loading...</div>
 <script>
-  $.getScript("../../js/config.js", function(){
-        // 项目内容
-        $.get(cdnUrl + "assets/data/projects.json", function(data) {
-            $('.div').empty()
-            for (let key in data) {
-                $('.div').append(`
-                  <project>
-                    <pro>
-                      <tita>${data[key].title}</tita>
-                      <titb>${data[key].titb}</titb>
-                      <info>${data[key].info1}</info>
-                      <info>${data[key].info2}</info>
-                    </pro>
-                  <br>
-                  </project>
-                `)
-            }
-        })
-    });
+    // 项目内容
+    $.get("https://ghproxy.cn/https://raw.githubusercontent.com/LapisNet/.public_data/refs/heads/main/projects.json", function(data) {
+      data = JSON.parse(data)
+        $('.div').empty()
+        for (let key in data) {
+          if(!data[key].hasOwnProperty("_show") || (data[key].hasOwnProperty("_show") && data[key]._show === true))
+            $('.div').append(`
+              <project>
+                <pro>
+                  <tita>${data[key].title}</tita>
+                  <titb>${data[key].subTitle}</titb>
+                  <info>${data[key].info1}</info>
+                  <info>${data[key].info2}</info>
+                </pro>
+              <br>
+              </project>
+            `)
+        }
+    })
 </script>
 </body>
 </head>

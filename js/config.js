@@ -1,1 +1,0 @@
-const cdnUrl = "https://xsawa.dev.tc/fdo-studios/";
